@@ -85,7 +85,6 @@ test:
     - bw2data.backends.peewee
     - bw2data.backends.single_file
     - bw2data.bin
-    - bw2data.metadata
     - bw2data.search
 
   commands:
