@@ -1,0 +1,11 @@
+syntax:glob
+
+.DS_Store
+.cache
+__pycache__
+*.pyc
+*~
+*.egg-info
+.ipynb_checkpoints
+~*
+*.swp
