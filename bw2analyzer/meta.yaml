@@ -1,0 +1,75 @@
+package:
+  name: bw2analyzer
+  version: "0.9.1"
+
+source:
+  fn: bw2analyzer-0.9.1.tar.gz
+  url: https://pypi.python.org/packages/b4/67/3a2918a71f34da040bf832d661c2e7ff1fd5bc1392ebf2ed02765cfdc418/bw2analyzer-0.9.1.tar.gz
+  md5: 72edbcaea13cddee2bbe0c28d5483fb3
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch: python
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - bw2analyzer = bw2analyzer:main
+    #
+    # Would create an entry point called bw2analyzer that calls bw2analyzer.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    #- brightway2 >=2.0
+    - bw2data >=2.3
+    - numpy
+    - requests
+    - scipy
+    - matplotlib
+
+  run:
+    - python
+    #- brightway2 >=2.0
+    - bw2data >=2.3
+    - numpy
+    - requests
+    - scipy
+    - matplotlib
+
+#test:
+  # Python imports
+ # imports:
+ #   - bw2analyzer
+ #   - bw2analyzer.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://bitbucket.org/cmutel/brightway2-analyzer
+  license: BSD License
+  summary: 'UNKNOWN'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

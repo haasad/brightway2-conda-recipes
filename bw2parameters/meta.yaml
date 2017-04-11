@@ -1,0 +1,67 @@
+package:
+  name: bw2parameters
+  version: "0.5.2"
+
+source:
+  fn: bw2parameters-0.5.2.tar.gz
+  url: https://pypi.python.org/packages/45/38/c2a8c8d7fdfed8fd377587aea014c8544c904890bdcbc71213a39c3174a5/bw2parameters-0.5.2.tar.gz
+  md5: 4186bf7c3265bfc180a137615d4c5431
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - bw2parameters = bw2parameters:main
+    #
+    # Would create an entry point called bw2parameters that calls bw2parameters.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - asteval >=0.9.7
+    - numpy
+
+  run:
+    - python
+    - asteval >=0.9.7
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - bw2parameters
+    - bw2parameters.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://bitbucket.org/cmutel/brightway2-parameters
+  license: BSD License
+  summary: 'UNKNOWN'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
