@@ -1,0 +1,119 @@
+package:
+  name: bw2io
+  version: "0.5.7"
+
+source:
+  fn: bw2io-0.5.7.tar.gz
+  url: https://pypi.python.org/packages/0c/c0/536fbc0722e68a01b5bdaca1efb8c4b6863b79d9969d78e6c369e41057df/bw2io-0.5.7.tar.gz
+  md5: 0dd35bfb5dd753d87c367182615e788c
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch: python
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - bw2io = bw2io:main
+    #
+    # Would create an entry point called bw2io that calls bw2io.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - bw2calc >=1.4
+    #- bw2data >=2.3
+    - lxml
+    - numpy
+    - psutil
+    - pyprind
+    - scipy
+    - stats_arrays
+    - unidecode
+    - voluptuous
+    - xlsxwriter
+    - xlrd
+    - appdirs
+    - bw2parameters
+    - docopt
+    - eight
+    - fasteners
+    - future
+    - lxml
+    - peewee >=2.7.4
+    - requests >=1.1.0
+    - scipy
+    - stats_arrays
+    - unicodecsv
+    - whoosh
+    - wrapt
+
+  run:
+    - python
+    - bw2calc >=1.4
+    #- bw2data >=2.3
+    - lxml
+    - numpy
+    - psutil
+    - pyprind
+    - scipy
+    - stats_arrays
+    - unidecode
+    - voluptuous
+    - xlsxwriter
+    - xlrd
+    - appdirs
+    - bw2parameters
+    - docopt
+    - eight
+    - fasteners
+    - future
+    - lxml
+    - peewee >=2.7.4
+    - requests >=1.1.0
+    - scipy
+    - stats_arrays
+    - unicodecsv
+    - whoosh
+    - wrapt
+
+test:
+  # Python imports
+  imports:
+    - bw2io
+    - bw2io.data
+    - bw2io.export
+    - bw2io.extractors
+    - bw2io.importers
+    - bw2io.strategies
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://bitbucket.org/cmutel/brightway2-io
+  license: BSD License
+  summary: 'Tools for importing and export life cycle inventory databases'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

@@ -1,0 +1,110 @@
+package:
+  name: bw2data
+  version: "2.4"
+
+source:
+  fn: bw2data-2.4.tar.gz
+  url: https://pypi.python.org/packages/ac/e7/c6c057b0cb7f1a31ded962ac0912b84c1034c7e339c326a9a29595bb991e/bw2data-2.4.tar.gz
+  md5: c964377c5f3785c0f74b23c6624d4d12
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch: python
+  # preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - bw2data = bw2data:main
+    #
+    # Would create an entry point called bw2data that calls bw2data.main()
+
+    - bw2-uptodate = bw2data.bin.bw2_uptodate:main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - appdirs
+    - bw2io >=0.2.dev1
+    - bw2parameters
+    - docopt
+    - eight
+    - fasteners
+    - future
+    - lxml
+    - numpy
+    - peewee >=2.7.4
+    - psutil
+    - pyprind
+    - requests >=1.1.0
+    - scipy
+    - stats_arrays
+    - unicodecsv
+    - voluptuous
+    - whoosh
+    - wrapt
+
+  run:
+    - python
+    - appdirs
+    - bw2io >=0.2.dev1
+    - bw2parameters
+    - docopt
+    - eight
+    - fasteners
+    - future
+    - lxml
+    - numpy
+    - peewee >=2.7.4
+    - psutil
+    - pyprind
+    - requests >=1.1.0
+    - scipy
+    - stats_arrays
+    - unicodecsv
+    - voluptuous
+    - whoosh
+    - wrapt
+
+test:
+  # Python imports
+  imports:
+    - bw2data
+    - bw2data.backends
+    - bw2data.backends.iotable
+    - bw2data.backends.json
+    - bw2data.backends.peewee
+    - bw2data.backends.single_file
+    - bw2data.bin
+    - bw2data.metadata
+    - bw2data.search
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - bw2-uptodate --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://bitbucket.org/cmutel/brightway2-data
+  license: BSD License
+  summary: 'Tools for the management of inventory databases and impact assessment methods. Part of the Brightway2 LCA Framework'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
