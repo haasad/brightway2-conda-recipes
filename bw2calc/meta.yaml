@@ -1,17 +1,21 @@
+{% set name = "bw2calc" %}
+{% set version = "1.6.1" %}
+{% set sha256 = "e6b9f65d25b448fa3350e72dce710dc0f622eb08cefe1cf30252b34ea38532d8" %}
+
+
 package:
-  name: bw2calc
-  version: "1.5.4"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: bw2calc-1.5.4.tar.gz
-  url: https://pypi.python.org/packages/a1/ba/0205651be8777c1afe6a56ed4ee4a9df122c27968e9802cc02655e44deda/bw2calc-1.5.4.tar.gz
-  md5: 1d91f4bc279b3589f4ed89a758f79be5
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
   # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The

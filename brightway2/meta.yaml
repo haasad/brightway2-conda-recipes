@@ -1,17 +1,24 @@
+{% set name = "brightway2" %}
+{% set version = "2.1" %}
+{% set sha256 = "2c2b3ba236bce5c17a7cf8239455c865721b31b6f0fc521792177bb5a789d628" %}
+
+
 package:
-  name: brightway2
-  version: "2.0.2"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: brightway2-2.0.2.tar.gz
-  url: https://pypi.python.org/packages/a1/23/564534ead9013e8dc7ef263582d4737d31b30695686a1182fb388d7e524d/brightway2-2.0.2.tar.gz
-  md5: da376f1ce2665ab6123292503b62aeb8
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 #  patches:
    # List any patch files here
    # - fix.patch
 
 build:
   noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
   # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
@@ -32,12 +39,11 @@ requirements:
     - setuptools
     - appdirs
     - asteval
-    - bw2analyzer >=0.9
-    - bw2calc >=1.2.1
-    - bw2data >=2.0.1
-    - bw2io >=0.4.1
-    - bw2parameters >=0.5.1
-    - bw2speedups >=2.1
+    - bw2analyzer
+    - bw2calc
+    - bw2data
+    - bw2io
+    - bw2parameters
     - docopt
     - eight
     - flask
@@ -50,10 +56,10 @@ requirements:
     - pyprind
     - requests
     - scipy
-    - stats_arrays >=0.4.1
+    - stats_arrays
     - unicodecsv
     - voluptuous
-    - whoosh >=2.7.4
+    - whoosh
     - xlrd
     - xlsxwriter
     - pypardiso
@@ -62,12 +68,11 @@ requirements:
     - python
     - appdirs
     - asteval
-    - bw2analyzer >=0.9
-    - bw2calc >=1.2.1
-    - bw2data >=2.0.1
-    - bw2io >=0.4.1
-    - bw2parameters >=0.5.1
-    - bw2speedups >=2.1
+    - bw2analyzer
+    - bw2calc
+    - bw2data
+    - bw2io
+    - bw2parameters
     - docopt
     - eight
     - flask
@@ -80,10 +85,10 @@ requirements:
     - pyprind
     - requests
     - scipy
-    - stats_arrays >=0.4.1
+    - stats_arrays
     - unicodecsv
     - voluptuous
-    - whoosh >=2.7.4
+    - whoosh
     - xlrd
     - xlsxwriter
     - pypardiso

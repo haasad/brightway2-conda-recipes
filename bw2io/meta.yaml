@@ -1,17 +1,21 @@
+{% set name = "bw2io" %}
+{% set version = "0.5.8.1" %}
+{% set sha256 = "232b4c5b0ca342ab86060d941ecfbbd8949c2c97fb1b0c7bd9a880f7cde6fea6" %}
+
+
 package:
-  name: bw2io
-  version: "0.5.7"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: bw2io-0.5.7.tar.gz
-  url: https://pypi.python.org/packages/0c/c0/536fbc0722e68a01b5bdaca1efb8c4b6863b79d9969d78e6c369e41057df/bw2io-0.5.7.tar.gz
-  md5: 0dd35bfb5dd753d87c367182615e788c
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
   # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
@@ -31,7 +35,6 @@ requirements:
     - python
     - setuptools
     - bw2calc >=1.4
-    #- bw2data >=2.3
     - lxml
     - numpy
     - psutil
@@ -60,7 +63,6 @@ requirements:
   run:
     - python
     - bw2calc >=1.4
-    #- bw2data >=2.3
     - lxml
     - numpy
     - psutil

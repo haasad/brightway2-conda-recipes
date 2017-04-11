@@ -1,17 +1,21 @@
+{% set name = "bw2data" %}
+{% set version = "2.4.3.1" %}
+{% set sha256 = "dcfe5a97a6d0afb72fa9723be9b886da5d267963db0e08e495185fdab869e09c" %}
+
+
 package:
-  name: bw2data
-  version: "2.4"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: bw2data-2.4.tar.gz
-  url: https://pypi.python.org/packages/ac/e7/c6c057b0cb7f1a31ded962ac0912b84c1034c7e339c326a9a29595bb991e/bw2data-2.4.tar.gz
-  md5: c964377c5f3785c0f74b23c6624d4d12
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
   # preserve_egg_dir: True
   entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
@@ -32,7 +36,6 @@ requirements:
     - python
     - setuptools
     - appdirs
-    - bw2io >=0.2.dev1
     - bw2parameters
     - docopt
     - eight
@@ -40,10 +43,10 @@ requirements:
     - future
     - lxml
     - numpy
-    - peewee >=2.7.4
+    - peewee
     - psutil
     - pyprind
-    - requests >=1.1.0
+    - requests
     - scipy
     - stats_arrays
     - unicodecsv
@@ -54,7 +57,6 @@ requirements:
   run:
     - python
     - appdirs
-    - bw2io >=0.2.dev1
     - bw2parameters
     - docopt
     - eight
@@ -62,10 +64,10 @@ requirements:
     - future
     - lxml
     - numpy
-    - peewee >=2.7.4
+    - peewee
     - psutil
     - pyprind
-    - requests >=1.1.0
+    - requests
     - scipy
     - stats_arrays
     - unicodecsv
