@@ -1,0 +1,116 @@
+package:
+  name: brightway2
+  version: "2.0.2"
+
+source:
+  fn: brightway2-2.0.2.tar.gz
+  url: https://pypi.python.org/packages/a1/23/564534ead9013e8dc7ef263582d4737d31b30695686a1182fb388d7e524d/brightway2-2.0.2.tar.gz
+  md5: da376f1ce2665ab6123292503b62aeb8
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch: python
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - brightway2 = brightway2:main
+    #
+    # Would create an entry point called brightway2 that calls brightway2.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - appdirs
+    - asteval
+    - bw2analyzer >=0.9
+    - bw2calc >=1.2.1
+    - bw2data >=2.0.1
+    - bw2io >=0.4.1
+    - bw2parameters >=0.5.1
+    - bw2speedups >=2.1
+    - docopt
+    - eight
+    - flask
+    - future
+    - lxml
+    - nose
+    - numpy
+    - peewee >=2.8
+    - psutil
+    - pyprind
+    - requests
+    - scipy
+    - stats_arrays >=0.4.1
+    - unicodecsv
+    - voluptuous
+    - whoosh >=2.7.4
+    - xlrd
+    - xlsxwriter
+    - pypardiso
+
+  run:
+    - python
+    - appdirs
+    - asteval
+    - bw2analyzer >=0.9
+    - bw2calc >=1.2.1
+    - bw2data >=2.0.1
+    - bw2io >=0.4.1
+    - bw2parameters >=0.5.1
+    - bw2speedups >=2.1
+    - docopt
+    - eight
+    - flask
+    - future
+    - lxml
+    - nose
+    - numpy
+    - peewee >=2.8
+    - psutil
+    - pyprind
+    - requests
+    - scipy
+    - stats_arrays >=0.4.1
+    - unicodecsv
+    - voluptuous
+    - whoosh >=2.7.4
+    - xlrd
+    - xlsxwriter
+    - pypardiso
+
+test:
+  # Python imports
+  imports:
+    - brightway2
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://bitbucket.org/cmutel/brightway2
+  license: BSD License
+  summary: 'UNKNOWN'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
